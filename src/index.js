@@ -1,13 +1,23 @@
-import _ from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.less'
+class Myreact extends React.Component {
 
-function component() {
-    var element = document.createElement('div');
-  
-    // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    constructor(props) {
+        super(props);
+    }
 
-
-    return element;
-  }
-  
-  document.body.appendChild(component());
+    render() {
+        return (
+            <div className="my-react">Myreact</div>
+        );
+    }
+}
+var myDiv = document.createElement('div');
+myDiv.id = 'root';
+myDiv.innerHTML = '我是DIV';
+ReactDOM.render(
+    <Myreact />,
+    myDiv
+);
+document.body.appendChild(myDiv)

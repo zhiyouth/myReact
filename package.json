@@ -1,19 +1,31 @@
 {
-  "name": "myreact",
+  "name": "my-react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/zhiyouth/myReact.git"
+    "url": "git+https://github.com/zhiyouth/myReact.git"
   },
-  "author": "haotang",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zhiyouth/myReact/issues"
   },
-  "homepage": "https://github.com/zhiyouth/myReact#readme"
+  "homepage": "https://github.com/zhiyouth/myReact#readme",
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }

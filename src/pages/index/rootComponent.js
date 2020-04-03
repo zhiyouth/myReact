@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less'
+
 class Myreact extends React.Component {
 
     constructor(props) {
@@ -9,7 +10,8 @@ class Myreact extends React.Component {
 
     render() {
         return (
-            <div className="my-react">Myreact</div>
+            <div className="my-react">
+            </div>
         );
     }
 }

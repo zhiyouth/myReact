@@ -4,7 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');//每次npm run bui
 const webpack = require('webpack');
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: './src/pages/index/rootComponent.js',
     },
     plugins: [
         new CleanWebpackPlugin(),

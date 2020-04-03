@@ -15,7 +15,6 @@ class Myreact extends React.Component {
 }
 var myDiv = document.createElement('div');
 myDiv.id = 'root';
-myDiv.innerHTML = '我是DIV';
 ReactDOM.render(
     <Myreact />,
     myDiv

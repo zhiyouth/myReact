@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less'
+import MainContent from './components/mainContent';
 
 class Myreact extends React.Component {
 
@@ -10,7 +11,8 @@ class Myreact extends React.Component {
 
     render() {
         return (
-            <div className="my-react">
+            <div className="my-content">
+                <MainContent />
             </div>
         );
     }

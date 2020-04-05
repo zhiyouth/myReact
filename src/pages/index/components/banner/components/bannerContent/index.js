@@ -43,7 +43,7 @@ function BannerContent(props) {
                     })
                 }
             </div>
-            <div className="mark-points">
+            {/* <div className="mark-points">
                 {
                     bannerImgs.map((item, index) => {
                         return (
@@ -51,7 +51,7 @@ function BannerContent(props) {
                         );
                     })
                 }
-            </div>
+            </div> */}
         </React.Fragment>
     );
 }

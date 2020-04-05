@@ -17,7 +17,18 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
-        hot: true
+        hot: true,
+        proxy: {
+            "/api": {
+              target: "http://106.54.155.93:8080",
+              changeOrigin: true,     // target是域名的话，需要这个参数，
+              pathRewrite: {"^/api" : ""}
+            }
+          },
+        //   host: "0.0.0.0",
+          allowedHosts: [
+              'http://106.54.155.93:8080'
+          ],
     },
     mode: 'development',
     output: {

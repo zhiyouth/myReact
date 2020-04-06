@@ -11,9 +11,9 @@ function MainContent(props) {
     const {} = props;
     console.log(axios.post, 'axios');
     useEffect(() => {
-        axios.get('/api/weremember/cgi/register.action',
+        axios.post('/api/weremember/cgi/register.action',
             {
-                params: {
+                data: {
                     nickname: 'haotang',
                     password: 'ra6004RAA',
                     phone: '13243071208',

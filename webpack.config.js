@@ -35,7 +35,8 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://132.232.4.174/'
+        // publicPath: 'http://132.232.4.174/'
+        publicPath: '/'
     },
     module: {
         rules: [

@@ -18,6 +18,7 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         hot: true,
+        https: true,
         proxy: {
             "/api": {
               target: "http://106.54.155.93:8080",
@@ -35,7 +36,6 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: 'http://132.232.4.174/'
         publicPath: '/'
     },
     module: {

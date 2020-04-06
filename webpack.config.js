@@ -35,7 +35,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://132.232.4.174/wr/myReact/dist/'
+        publicPath: 'http://132.232.4.174/'
     },
     module: {
         rules: [

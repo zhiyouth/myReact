@@ -9,7 +9,6 @@ import axios from 'axios';
 function MainContent(props) {
     const [firstLocation, setFirstLocation] = useState('贴吧');
     const {} = props;
-    console.log(axios.post, 'axios');
     useEffect(() => {
         axios.post('/api/weremember/cgi/register.action',
             {

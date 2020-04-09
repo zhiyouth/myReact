@@ -4,10 +4,12 @@ import LogRegister from '../loginRegister';
 import Navigation from '../navigation';
 import Header from '../header';
 import Banner from '../banner';
+import Login from '../login';
 import axios from 'axios';
 
 function MainContent(props) {
     const [firstLocation, setFirstLocation] = useState('贴吧');
+    const [loginFlag, setLoginFlag] = useState(false);
     const {} = props;
     useEffect(() => {
         axios.post('/api/weremember/cgi/register.action',
@@ -29,13 +31,19 @@ function MainContent(props) {
 
     return (
         <div className="com-main-content">
-            <LogRegister />
+            <LogRegister
+                setLoginFlag={setLoginFlag}
+            />
             <Navigation
                 firstLocation={firstLocation}
                 setFirstLocation={setFirstLocation}
             />
             <Header />
             <Banner />
+            {loginFlag &&
+            <Login
+                setLoginFlag={setLoginFlag}
+            />}
         </div>
     );
 }

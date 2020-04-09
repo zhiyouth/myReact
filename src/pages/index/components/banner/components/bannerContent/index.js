@@ -12,6 +12,7 @@ function BannerContent() {
     const [active, setActive] = useState(0);
     const [stopFlag, setStopFlag] = useState(0);
     const banner = useRef('banner');
+    const bannerWrapper = useRef('bannerWrapper');
 
     //轮播
     function showNext() {
@@ -21,6 +22,10 @@ function BannerContent() {
         } else {
             nextActive = 0
         }
+        changeBanner(nextActive);
+    }
+
+    function changeBanner(nextActive) {
         banner.current.children[active].style.transition = "none";
         banner.current.children[nextActive].style.transition = "none";
         banner.current.children[nextActive].style.left = "931px";
@@ -32,24 +37,39 @@ function BannerContent() {
         }, 20)
         setActive(nextActive);
     }
+
+    function showClickOne(index) {
+        const nextActive = index;
+        changeBanner(nextActive);
+    }
     
     //停止轮播，清除定时器
     function stopTimer() {
         clearTimeout(timer);
     }
 
+    function handleClick(index) {
+        setActive(index);
+        showClickOne(index);
+    }
+
     //初始化设置定时器 并绑定鼠标事件
     useEffect(() => {
-        banner.current.addEventListener('mouseenter', () => {
+        bannerWrapper.current.addEventListener('mouseenter', () => {
             stopTimer();
             setStopFlag(true)
         });
-        banner.current.addEventListener('mouseleave', () => {
+        bannerWrapper.current.addEventListener('mouseleave', () => {
             setStopFlag(false)
         });
+        // banner.current.children.forEach((item, index) => {
+        //     item.addEventListener('click', () => {
+        //         setActive(index);
+        //     })
+        // })
         return () => {
-            banner.current.removeEventListener('mouseenter');
-            banner.current.removeEventListener('mouseleave');
+            bannerWrapper.current.removeEventListener('mouseenter');
+            bannerWrapper.current.removeEventListener('mouseleave');
         }
     }, [false])
     
@@ -61,7 +81,7 @@ function BannerContent() {
     }, [active, stopFlag])
 
     return (
-        <React.Fragment>
+        <div className="com-banner-wrapper" ref={bannerWrapper}>
             <div className="banner" ref={banner}>
                 {
                     bannerImgs.map((item, index) => {
@@ -75,12 +95,16 @@ function BannerContent() {
                 {
                     bannerImgs.map((item, index) => {
                         return (
-                            <div key={`points-${index}`} className={`points-item points-${index} ${index === active ? 'active' : ''}`}></div>
+                            <div key={`points-${index}`}
+                                className={`points-item points-${index} ${index === active ? 'active' : ''}`}
+                                onClick={active !== index ? () => {handleClick(index)} : null}
+                            >
+                            </div>
                         );
                     })
                 }
             </div>
-        </React.Fragment>
+        </div>
     );
 }
 

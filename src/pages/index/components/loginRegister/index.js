@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import './index.less';
 
 function LogRegister(props) {
-    const {} = props;
+    const {setLoginFlag} = props;
+    function handleLoginClick() {
+        setLoginFlag(true);
+    }
     return (
         <div className="com-login-register">
             <div className="com-login-register-content">
-                <a className="login" href="./login.html">登录</a>
+                <div className="login" onClick={handleLoginClick}>登录</div>
                 <a className="register" href="#">注册</a>
             </div>
         </div>

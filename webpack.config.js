@@ -4,12 +4,28 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');//每次npm run bui
 const webpack = require('webpack');
 module.exports = {
     entry: {
-        app: './src/pages/index/rootComponent.js',
+        index: './src/pages/index/rootComponent.js',
+        login: './src/pages/login/rootComponent.js'
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Output management'
+            title: 'Output management',
+            filename: 'index.html',
+            chunks: ['index'],
+            minify:{
+                removeComments:true, //是否压缩时 去除注释
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Output management',
+            filename: 'login.html',
+            chunks: ['login'],
+            minify:{
+                removeComments:true, //是否压缩时 去除注释
+                collapseWhitespace: false
+            }
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -25,12 +41,7 @@ module.exports = {
               changeOrigin: true,     // target是域名的话，需要这个参数，
               pathRewrite: {"^/api" : ""}
             }
-          },
-        //   host: "0.0.0.0",
-        //   
-        //   allowedHosts: [
-        //       'http://106.54.155.93:8080'
-        //   ],
+          }
     },
     mode: 'development',
     output: {

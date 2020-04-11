@@ -7,9 +7,7 @@ function Banner(props) {
     const {} = props;
     return (
         <div className="com-banner">
-            <div className="com-banner-wrapper">
-                <BannerContent />
-            </div>
+            <BannerContent />
             <BannerTime />
         </div>
     );

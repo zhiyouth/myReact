@@ -36,10 +36,10 @@ module.exports = {
         hot: true,
         https: true,
         proxy: {
-            "/api": {
+            "/weremember": {
               target: "http://106.54.155.93:8080",
               changeOrigin: true,     // target是域名的话，需要这个参数，
-              pathRewrite: {"^/api" : ""}
+            //   pathRewrite: {"^/api" : ""}
             }
           }
     },

@@ -5,7 +5,7 @@ export function getLogin({
 }) {
     return (
         axios({
-            url: '/api/weremember/cgi/login.action',
+            url: '/weremember/cgi/login.action',
             method: 'post',
             data: JSON.stringify({
                 nickname,

@@ -41,12 +41,7 @@ module.exports = {
               changeOrigin: true,     // target是域名的话，需要这个参数，
               pathRewrite: {"^/api" : ""}
             }
-          },
-        //   host: "0.0.0.0",
-        //   
-        //   allowedHosts: [
-        //       'http://106.54.155.93:8080'
-        //   ],
+          }
     },
     mode: 'development',
     output: {

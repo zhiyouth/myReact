@@ -5,34 +5,19 @@ import Navigation from '../navigation';
 import Header from '../header';
 import Banner from '../banner';
 import Login from '../login';
-import axios from 'axios';
 
 function MainContent(props) {
     const [firstLocation, setFirstLocation] = useState('贴吧');
     const [loginFlag, setLoginFlag] = useState(false);
+    const [hasLogin, setHasLogin] = useState(false);
+    const [golbalNickname, setGolbalNickname] = useState(false);
     const {} = props;
-    useEffect(() => {
-        axios.post('/api/weremember/cgi/register.action',
-            {
-                data: {
-                    nickname: 'haotang',
-                    password: 'ra6004RAA',
-                    phone: '13243071208',
-                    name: 'haotang'
-                }
-            }
-        )
-        .then(data => {
-            console.log(data, 'data')
-        }).catch(err => {
-            console.log(err, 'err')
-        })
-    }, [false])
-
     return (
         <div className="com-main-content">
             <LogRegister
                 setLoginFlag={setLoginFlag}
+                hasLogin={hasLogin}
+                golbalNickname={golbalNickname}
             />
             <Navigation
                 firstLocation={firstLocation}
@@ -43,6 +28,8 @@ function MainContent(props) {
             {loginFlag &&
             <Login
                 setLoginFlag={setLoginFlag}
+                setHasLogin={setHasLogin}
+                setGolbalNickname={setGolbalNickname}
             />}
         </div>
     );

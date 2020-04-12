@@ -64,14 +64,14 @@ function Register(props) {
     }
 
     return (
-        <div className="com-login">
+        <div className="com-register">
             <div className="mask" onClick={handleMaskClick}></div>
-            <div className="login">
+            <div className="register">
                 <div className="header">
                     <div className="logo_img"></div>
                     <div className="word">注册</div>
                 </div>
-                <div className="login_content">
+                <div className="register_content">
                     <div className="username">
                         <div className="username_word">用户名</div>
                         <input className="username_input" ref={inputNickname} placeholder="" onChange={handleChangeNickname} />
@@ -100,8 +100,8 @@ function Register(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="auto_login__forget_password">
-                        <div className="auto_login">
+                    <div className="agree_me">
+                        <div className="agree_me_content">
                             <input type="checkbox" />
                             <div>同意本站隐私保护权益</div>
                         </div>
@@ -113,7 +113,7 @@ function Register(props) {
                     <div className="login_by_code"></div>
                     <div className="login_by_qq"></div>
                     <div className="login_by_wx"></div>   
-                    <div className="register"></div>
+                    <div className="footer_register"></div>
                 </div>
             </div>
         </div>

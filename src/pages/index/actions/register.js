@@ -6,7 +6,7 @@ export function getRegister({
     name = ''
 }) {
     axios({
-        url: '/weremember/cgi/register.action',
+        url: '/api/weremember/cgi/register.action',
         method: 'post',
         data: JSON.stringify({
             nickname,

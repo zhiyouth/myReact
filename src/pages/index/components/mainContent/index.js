@@ -5,17 +5,19 @@ import Navigation from '../navigation';
 import Header from '../header';
 import Banner from '../banner';
 import Login from '../login';
+import Register from '../register';
 
 function MainContent(props) {
     const [firstLocation, setFirstLocation] = useState('贴吧');
     const [loginFlag, setLoginFlag] = useState(false);
+    const [registerFlag, setRegisterFlag] = useState(false);
     const [hasLogin, setHasLogin] = useState(false);
     const [golbalNickname, setGolbalNickname] = useState(false);
-    const {} = props;
     return (
         <div className="com-main-content">
             <LogRegister
                 setLoginFlag={setLoginFlag}
+                setRegisterFlag={setRegisterFlag}
                 hasLogin={hasLogin}
                 golbalNickname={golbalNickname}
             />
@@ -31,6 +33,11 @@ function MainContent(props) {
                 setHasLogin={setHasLogin}
                 setGolbalNickname={setGolbalNickname}
             />}
+            {registerFlag &&
+            <Register
+                setRegisterFlag={setRegisterFlag}
+            />
+            }
         </div>
     );
 }

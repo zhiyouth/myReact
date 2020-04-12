@@ -1,13 +1,17 @@
 import React, {useState, useRef} from 'react';
 import './index.less';
-import {getLogin} from '../../actions'
+import {getRegister} from '../../actions'
 
-function Login(props) {
+function Register(props) {
     const {setLoginFlag, setHasLogin, setGolbalNickname} = props;
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
+    const [phone, setPhone] = useState(0);
     const inputNickname = useRef('inputNickname');
     const inputPassword = useRef('inputPassword');
+    const inputRePassword = useRef('inputRePassword');
+    const inputPhone = useRef('inputPhone');
     function handleMaskClick() {
         setLoginFlag(false);
     }
@@ -18,21 +22,34 @@ function Login(props) {
     function handleChangePassword() {
         setPassword(inputPassword.current.value);
     }
+    function handleChangeRePassword() {
+        setRePassword(inputPassword.current.value);
+    }
+    function handleChangePhone() {
+        setPhone(inputPassword.current.value);
+    }
 
-    function handleLoginButtonClick() {
-        toLogin({
+    function handleRegisterButtonClick() {
+        toRegister({
             nickname,
-            password
+            password,
+            phone
         })
     }
 
-    function toLogin({
+    function toRegister({
         nickname = '',
-        password = ''
+        password = '',
+        phone = 0
     }) {
-        getLogin({
+        if (password !== rePassword) {
+            console.log('密码和重复密码不一致');
+            return;
+        }
+        getRegister({
             nickname,
-            password
+            password,
+            phone
         }).then((data) => {
             if (data.data.code === "WR_CODE_0000") {
                 setHasLogin(true);
@@ -54,7 +71,7 @@ function Login(props) {
             <div className="login">
                 <div className="header">
                     <div className="logo_img"></div>
-                    <div className="word">账号密码登录</div>
+                    <div className="word">注册</div>
                 </div>
                 <div className="login_content">
                     <div className="username">
@@ -64,6 +81,14 @@ function Login(props) {
                     <div className="password">
                         <div className="password_word">密码</div>
                         <input className="password_input" ref={inputPassword} placeholder="" onChange={handleChangePassword} />
+                    </div>
+                    <div className="re_password">
+                        <div className="re_password_word">重复密码</div>
+                        <input className="re_password_input" ref={inputRePassword} placeholder="" onChange={handleChangeRePassword} />
+                    </div>
+                    <div className="phone">
+                        <div className="phone_word">手机号</div>
+                        <input className="phone_input" ref={inputPhone} placeholder="" onChange={handleChangePhone} />
                     </div>
                     <div className="is_true_man">
                         <div className="is_true_man_word">验证码</div>
@@ -80,11 +105,10 @@ function Login(props) {
                     <div className="auto_login__forget_password">
                         <div className="auto_login">
                             <input type="checkbox" />
-                            <div>下次自动登录</div>
+                            <div>同意本站隐私保护权益</div>
                         </div>
-                        <a className="forget_password" href="#">找回密码</a>
                     </div>
-                    <div className="login_button" onClick={handleLoginButtonClick}></div>
+                    <div className="register_button" onClick={handleRegisterButtonClick}></div>
                     <div className="ad">有问题学长来帮你</div>
                 </div>
                 <div className="footer">
@@ -98,4 +122,4 @@ function Login(props) {
     );
 }
 
-export default Login;
+export default Register;

@@ -3,7 +3,7 @@ import './index.less';
 import {getRegister} from '../../actions'
 
 function Register(props) {
-    const {setLoginFlag, setHasLogin, setGolbalNickname} = props;
+    const {setRegisterFlag} = props;
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
@@ -13,7 +13,7 @@ function Register(props) {
     const inputRePassword = useRef('inputRePassword');
     const inputPhone = useRef('inputPhone');
     function handleMaskClick() {
-        setLoginFlag(false);
+        setRegisterFlag(false);
     }
 
     function handleChangeNickname() {
@@ -52,11 +52,9 @@ function Register(props) {
             phone
         }).then((data) => {
             if (data.data.code === "WR_CODE_0000") {
-                setHasLogin(true);
                 inputNickname.current.value = '';
                 inputPassword.current.value = '';
-                setLoginFlag(false);
-                setGolbalNickname(data.data.obj.nickname)
+                setRegisterFlag(false);
             } else if (data.data.code === "WR_CODE_0005") {
                 console.log(data.data.msg)
             }

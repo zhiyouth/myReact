@@ -101,6 +101,7 @@ function Register(props) {
                         </div>
                     </div>
                     <div className="agree_me">
+                        <div className="empty_div"></div>
                         <div className="agree_me_content">
                             <input type="checkbox" />
                             <div>同意本站隐私保护权益</div>

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import './index.less';
 
-function BannerTime(props) {
+function MainContent(props) {
     const {} = props;
     return (
-        <div className="banner-time">
-            Time
+        <div>
+            MainContent
         </div>
     );
 }
 
-export default BannerTime;
+export default MainContent;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less'
-import MainContent from './components/mainContent';
+import MainContent from './mainContent';
 
 class Myreact extends React.Component {
 
